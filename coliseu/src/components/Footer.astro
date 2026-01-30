@@ -1,0 +1,15 @@
+---
+import { siteMeta, whatsappMessageFor } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src={siteMeta.logo} alt="Coliseu" />
+      <p>Escola de artes marciais em Maringá-PR.</p>
+    </div>
+    <div class="footer-links">
+      <a href={whatsappMessageFor('as aulas da Coliseu')}>WhatsApp</a>
+      <a href={siteMeta.instagram}>Instagram</a>
+    </div>
+  </div>
+</footer>

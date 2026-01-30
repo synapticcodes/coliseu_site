@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import { classes, schedules, locations, gallery, siteMeta, aboutCopy, contactCopy } from '../data/site';
+---
+<BaseLayout title="Coliseu | Home">
+  <HeaderNav />
+
+  <main>
+    <section class="hero" style={`--hero-image: url('${siteMeta.heroImage}')`}>
+      <div class="container hero-content">
+        <img class="hero-logo" src={siteMeta.logo} alt="Coliseu" />
+        <h1 class="hero-title">COLISEU</h1>
+        <p class="hero-subtitle">
+          Escola de artes marciais em Maringá-PR. Muay Thai, Jiu-Jitsu, MMA, Boxe e Defesa Pessoal.
+        </p>
+        <div class="contact-actions">
+          <a class="button" href={siteMeta.whatsappLink}>Fale no WhatsApp</a>
+          <a class="button outline" href="/#horarios">Ver horários</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="aulas">
+      <div class="container">
+        <h2 class="section-title">Nossas Aulas</h2>
+        <div class="grid classes-grid">
+          {classes.map((c) => (
+            <article class="class-card">
+              <img src={c.image} alt={c.name} loading="lazy" />
+              <div class="card-body">
+                <h3>{c.name}</h3>
+                <a class="button" href={c.slug}>Saiba Mais</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="sobre">
+      <div class="container two-column">
+        <div>
+          <h2 class="section-title">Sobre Nós</h2>
+          <p>{aboutCopy}</p>
+          <a class="button" href="/sobre-nos">Saiba Mais</a>
+        </div>
+        <img src={siteMeta.aboutImage} alt="Treino Coliseu" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section" id="horarios">
+      <div class="container">
+        <h2 class="section-title">Horários</h2>
+        <p>Confira a programação da Unidade 1 e fale conosco para detalhes de turmas e vagas.</p>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+          <div>
+            <h3>Unidade 1</h3>
+            <ul class="schedule-list">
+              {schedules.unidade1.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="contact-card">
+            <h3>Quer saber mais?</h3>
+            <p>Envie sua mensagem e confirme horários disponíveis para sua turma.</p>
+            <a class="button" href={siteMeta.whatsappLink}>Saiba Mais no WhatsApp</a>
+            <div class="contact-strip">
+              <span>WhatsApp: {siteMeta.phoneDisplay}</span>
+              <span>Instagram: {siteMeta.instagramHandle}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="galeria">
+      <div class="container">
+        <h2 class="section-title">Galeria</h2>
+        <div class="grid gallery-grid">
+          {gallery.map((img, index) => (
+            <div class="gallery-item">
+              <img src={img} alt={`Galeria Coliseu ${index + 1}`} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container two-column">
+        <div class="contact-card">
+          <h2 class="section-title">Fale Conosco</h2>
+          <p>{contactCopy}</p>
+          <div class="contact-actions">
+            <a class="button" href={siteMeta.whatsappLink}>WhatsApp</a>
+            <a class="button outline" href={siteMeta.instagram}>Instagram</a>
+          </div>
+          <div class="contact-strip">
+            <span>WhatsApp: {siteMeta.phoneDisplay}</span>
+            <span>Instagram: {siteMeta.instagramHandle}</span>
+          </div>
+        </div>
+        <img src={siteMeta.contactImage} alt="Treino Coliseu" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section alt" id="unidades">
+      <div class="container">
+        <h2 class="section-title">Unidades</h2>
+        <div class="grid cols-2">
+          {locations.map((loc) => (
+            <div class="map-card">
+              <h3>{loc.name}</h3>
+              <p>{loc.address}</p>
+              <iframe
+                src={loc.map}
+                width="100%"
+                height="260"
+                style="border:0;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Envie sua mensagem</h2>
+        <form class="form-card">
+          <input type="text" placeholder="Seu Nome" aria-label="Seu Nome" required />
+          <input type="email" placeholder="Seu e-mail" aria-label="Seu e-mail" required />
+          <textarea placeholder="Sua Mensagem" rows="5" aria-label="Sua Mensagem" required></textarea>
+          <button class="button" type="submit">Enviar</button>
+          <small>Envio ainda não configurado.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

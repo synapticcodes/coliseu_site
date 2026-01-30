@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import { siteMeta, contactCopy } from '../data/site';
+
+const title = 'Boxe';
+const heroImage = '/assets/boxe.jpg';
+---
+<BaseLayout title={`Coliseu | ${title}`}>
+  <HeaderNav />
+  <main>
+    <section class="hero hero--inner" style={`--hero-image: url('${heroImage}')`}>
+      <div class="container hero-content">
+        <h1 class="hero-title">{title}</h1>
+        <p class="hero-subtitle">Conheça a modalidade e fale conosco para horários e turmas disponíveis.</p>
+        <a class="button" href={siteMeta.whatsappLink}>Consultar no WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-column">
+        <div>
+          <h2 class="section-title">Sobre a modalidade</h2>
+          <p>
+            Para informações completas sobre treinos, horários, valores e matrículas, entre em contato com a equipe
+            Coliseu.
+          </p>
+          <div class="contact-actions">
+            <a class="button" href={siteMeta.whatsappLink}>Falar no WhatsApp</a>
+            <a class="button outline" href={siteMeta.instagram}>Instagram</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>Fale Conosco</h3>
+          <p>{contactCopy}</p>
+          <div class="contact-strip">
+            <span>WhatsApp: {siteMeta.phoneDisplay}</span>
+            <span>Instagram: {siteMeta.instagramHandle}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

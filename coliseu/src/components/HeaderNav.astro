@@ -1,0 +1,29 @@
+---
+import { siteMeta } from '../data/site';
+
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'Sobre Nós', href: '/sobre-nos' },
+  { label: 'Muay Thai', href: '/muay-thai' },
+  { label: 'Jiu-Jitsu', href: '/jiu-jitsu' },
+  { label: 'MMA', href: '/mma' },
+  { label: 'Boxe', href: '/boxe' },
+  { label: 'Defesa Pessoal', href: '/defesa-pessoal' },
+  { label: 'Turmas e Personal Fight', href: '/turmas-e-personal-fight' },
+  { label: 'Horários', href: '/#horarios' },
+  { label: 'Galeria', href: '/#galeria' },
+  { label: 'Contato', href: '/#contato' },
+];
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/" aria-label="Coliseu">
+      <img src={siteMeta.logo} alt="Coliseu" />
+    </a>
+    <nav class="nav">
+      {links.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>

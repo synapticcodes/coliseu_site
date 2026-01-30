@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import { siteMeta, aboutCopy, contactCopy, whatsappMessageFor } from '../data/site';
+---
+<BaseLayout title="Coliseu | Sobre Nós">
+  <HeaderNav />
+  <main>
+    <section class="hero hero--inner" style={`--hero-image: url('${siteMeta.aboutImage}')`}>
+      <div class="container hero-content">
+        <h1 class="hero-title">Sobre Nós</h1>
+        <p class="hero-subtitle">Conheça a história e a essência da Coliseu.</p>
+        <a class="button" href={whatsappMessageFor('a história da Coliseu')}>Fale com a equipe</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-column">
+        <div>
+          <h2 class="section-title">Nossa história</h2>
+          <p>{aboutCopy}</p>
+        </div>
+        <img src={siteMeta.aboutImage} alt="Coliseu" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section alt" id="contato">
+      <div class="container two-column">
+        <div class="contact-card">
+          <h2 class="section-title">Fale Conosco</h2>
+          <p>{contactCopy}</p>
+          <div class="contact-actions">
+            <a class="button" href={whatsappMessageFor('as aulas da Coliseu')}>WhatsApp</a>
+            <a class="button outline" href={whatsappMessageFor('matrículas e horários')}>Matrículas</a>
+          </div>
+          <div class="contact-strip">
+            <span>WhatsApp: {siteMeta.phoneDisplay}</span>
+            <span>Instagram: {siteMeta.instagramHandle}</span>
+          </div>
+        </div>
+        <img src={siteMeta.contactImage} alt="Treino Coliseu" loading="lazy" />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
