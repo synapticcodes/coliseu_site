@@ -69,10 +69,13 @@ const heroLogo = '/assets/logo-2.png';
         <div class="contact-card">
           <h2 class="section-title">Fale Conosco</h2>
           <p>{contactCopy}</p>
-          <div class="contact-actions">
-            <a class="button" href={whatsappMessageFor('as aulas da Coliseu')}>WhatsApp</a>
-            <a class="button outline" href={whatsappMessageFor('matrículas')}>Matrículas</a>
-          </div>
+        <div class="contact-actions">
+          <a class="button" href={whatsappMessageFor('as aulas da Coliseu')}>WhatsApp</a>
+          <a class="button outline" href={whatsappMessageFor('matrículas')}>Matrículas</a>
+          <a class="button outline" href={whatsappMessageFor('os horários das aulas e turmas disponíveis')}>
+            Horários
+          </a>
+        </div>
           <div class="contact-strip">
             <span>WhatsApp: {siteMeta.phoneDisplay}</span>
             <span>Instagram: {siteMeta.instagramHandle}</span>
