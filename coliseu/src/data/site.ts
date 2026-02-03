@@ -20,18 +20,6 @@ export const classes = [
   { name: 'Personal Fight | Aulas Particulares', slug: '/turmas-e-personal-fight', image: '/assets/foto10.jpeg' },
 ];
 
-export const schedules = {
-  unidade1: [
-    'Muay Thai Adulto | Segundas e Quartas | 09:00',
-    'Muay Thai Adulto | Terças e Quintas | 19:00',
-    'Muay Thai Infantil (06 a 13 anos) | Terças e Quintas | 18:15',
-    'Muay Thai | Segundas e Quartas | 19:15',
-    'Muay Thai | Terças e Quintas | 09:30',
-    'Jiu-Jitsu | Segundas e Quartas | 20:15',
-    'Fight Circuit | Terças e Quintas | 09:30',
-  ],
-};
-
 export const locations = [
   {
     name: 'Unidade 1',
