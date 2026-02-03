@@ -16,15 +16,60 @@ const {
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=DM+Sans:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Teko:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <slot />
     <Footer />
+    <div class="image-modal" id="image-modal" aria-hidden="true" role="dialog" aria-label="Imagem ampliada">
+      <div class="image-modal__inner">
+        <button class="image-modal__close" type="button" aria-label="Fechar">×</button>
+        <img class="image-modal__img" alt="" />
+      </div>
+    </div>
+    <script>
+      const modal = document.querySelector('#image-modal');
+      const modalImg = modal?.querySelector('.image-modal__img');
+      const closeBtn = modal?.querySelector('.image-modal__close');
+      const galleryImages = document.querySelectorAll('.gallery-item img');
+
+      const closeModal = () => {
+        if (!modal || !modalImg) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        modalImg.alt = '';
+        document.body.style.overflow = '';
+      };
+
+      const openModal = (img) => {
+        if (!modal || !modalImg) return;
+        modalImg.src = img.currentSrc || img.src;
+        modalImg.alt = img.alt || '';
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      galleryImages.forEach((img) => {
+        img.addEventListener('click', () => openModal(img));
+      });
+
+      closeBtn?.addEventListener('click', closeModal);
+      modal?.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeModal();
+      });
+    </script>
   </body>
 </html>

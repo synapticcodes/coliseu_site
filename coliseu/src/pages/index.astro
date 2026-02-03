@@ -1,18 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeaderNav from '../components/HeaderNav.astro';
-import {
-  classes,
-  schedules,
-  locations,
-  gallery,
-  siteMeta,
-  aboutCopy,
-  contactCopy,
-  whatsappMessageFor,
-} from '../data/site';
+import { classes, locations, gallery, siteMeta, aboutCopy, contactCopy, whatsappMessageFor } from '../data/site';
 
 const whatsappBase = `https://wa.me/${siteMeta.whatsappNumber}`;
+const heroLogo = '/assets/logo-2.png';
 ---
 <BaseLayout title="Coliseu | Home">
   <HeaderNav />
@@ -20,14 +12,13 @@ const whatsappBase = `https://wa.me/${siteMeta.whatsappNumber}`;
   <main>
     <section class="hero" style={`--hero-image: url('${siteMeta.heroImage}')`}>
       <div class="container hero-content">
-        <img class="hero-logo" src={siteMeta.logo} alt="Coliseu" />
-        <h1 class="hero-title">COLISEU</h1>
+        <img class="hero-logo" src={heroLogo} alt="Coliseu" />
+        <h1 class="hero-title">SAÚDE, QUALIDADE E ESTILO DE VIDA</h1>
         <p class="hero-subtitle">
-          Escola de artes marciais em Maringá-PR. Muay Thai, Jiu-Jitsu, MMA, Boxe e Defesa Pessoal.
+          Escola de artes marciais em Maringá-PR. Muay Thai, Jiu-Jitsu, MMA e Boxe.
         </p>
         <div class="contact-actions">
           <a class="button" href={whatsappMessageFor('as aulas da Coliseu')}>Fale no WhatsApp</a>
-          <a class="button outline" href={whatsappMessageFor('horários das aulas')}>Ver horários</a>
         </div>
       </div>
     </section>
@@ -60,32 +51,6 @@ const whatsappBase = `https://wa.me/${siteMeta.whatsappNumber}`;
       </div>
     </section>
 
-    <section class="section" id="horarios">
-      <div class="container">
-        <h2 class="section-title">Horários</h2>
-        <p>Confira a programação da Unidade 1 e fale conosco para detalhes de turmas e vagas.</p>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-          <div>
-            <h3>Unidade 1</h3>
-            <ul class="schedule-list">
-              {schedules.unidade1.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div class="contact-card">
-            <h3>Quer saber mais?</h3>
-            <p>Envie sua mensagem e confirme horários disponíveis para sua turma.</p>
-            <a class="button" href={whatsappMessageFor('horários da Unidade 1')}>Saiba Mais no WhatsApp</a>
-            <div class="contact-strip">
-              <span>WhatsApp: {siteMeta.phoneDisplay}</span>
-              <span>Instagram: {siteMeta.instagramHandle}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section alt" id="galeria">
       <div class="container">
         <h2 class="section-title">Galeria</h2>
@@ -104,10 +69,13 @@ const whatsappBase = `https://wa.me/${siteMeta.whatsappNumber}`;
         <div class="contact-card">
           <h2 class="section-title">Fale Conosco</h2>
           <p>{contactCopy}</p>
-          <div class="contact-actions">
-            <a class="button" href={whatsappMessageFor('as aulas da Coliseu')}>WhatsApp</a>
-            <a class="button outline" href={whatsappMessageFor('matrículas e horários')}>Matrículas</a>
-          </div>
+        <div class="contact-actions">
+          <a class="button" href={whatsappMessageFor('as aulas da Coliseu')}>WhatsApp</a>
+          <a class="button outline" href={whatsappMessageFor('matrículas')}>Matrículas</a>
+          <a class="button outline" href={whatsappMessageFor('os horários das aulas e turmas disponíveis')}>
+            Horários
+          </a>
+        </div>
           <div class="contact-strip">
             <span>WhatsApp: {siteMeta.phoneDisplay}</span>
             <span>Instagram: {siteMeta.instagramHandle}</span>

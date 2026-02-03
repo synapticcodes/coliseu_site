@@ -4,7 +4,7 @@ import HeaderNav from '../components/HeaderNav.astro';
 import { siteMeta, contactCopy, whatsappMessageFor } from '../data/site';
 
 const title = 'Muay Thai';
-const heroImage = '/assets/thaicapa.jpg';
+const heroImage = '/assets/foto7.jpeg';
 ---
 <BaseLayout title={`Coliseu | ${title}`}>
   <HeaderNav />
@@ -12,7 +12,7 @@ const heroImage = '/assets/thaicapa.jpg';
     <section class="hero hero--inner" style={`--hero-image: url('${heroImage}')`}>
       <div class="container hero-content">
         <h1 class="hero-title">{title}</h1>
-        <p class="hero-subtitle">Conheça a modalidade e fale conosco para horários e turmas disponíveis.</p>
+        <p class="hero-subtitle">Conheça a modalidade e fale conosco no WhatsApp.</p>
         <a class="button" href={whatsappMessageFor(title)}>Consultar no WhatsApp</a>
       </div>
     </section>
@@ -22,12 +22,11 @@ const heroImage = '/assets/thaicapa.jpg';
         <div>
           <h2 class="section-title">Sobre a modalidade</h2>
           <p>
-            Para informações completas sobre treinos, horários, valores e matrículas, entre em contato com a equipe
-            Coliseu.
+            Para informações completas sobre treinos e matrículas, entre em contato com a equipe Coliseu.
           </p>
           <div class="contact-actions">
             <a class="button" href={whatsappMessageFor(title)}>Falar no WhatsApp</a>
-            <a class="button outline" href={whatsappMessageFor('matrículas e horários')}>Matrículas</a>
+            <a class="button outline" href={whatsappMessageFor('matrículas')}>Matrículas</a>
           </div>
         </div>
         <div class="contact-card">
