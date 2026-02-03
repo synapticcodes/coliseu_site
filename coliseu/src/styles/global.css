@@ -298,6 +298,15 @@ p + h3 {
   align-items: center;
 }
 
+.contact-single {
+  display: grid;
+  justify-content: center;
+}
+
+.contact-single .contact-card {
+  width: min(720px, 100%);
+}
+
 .two-column img {
   border-radius: 18px;
   box-shadow: var(--shadow);
