@@ -13,6 +13,7 @@ import {
 } from '../data/site';
 
 const whatsappBase = `https://wa.me/${siteMeta.whatsappNumber}`;
+const heroLogo = '/assets/logo-2.png';
 ---
 <BaseLayout title="Coliseu | Home">
   <HeaderNav />
@@ -20,10 +21,10 @@ const whatsappBase = `https://wa.me/${siteMeta.whatsappNumber}`;
   <main>
     <section class="hero" style={`--hero-image: url('${siteMeta.heroImage}')`}>
       <div class="container hero-content">
-        <img class="hero-logo" src={siteMeta.logo} alt="Coliseu" />
-        <h1 class="hero-title">COLISEU</h1>
+        <img class="hero-logo" src={heroLogo} alt="Coliseu" />
+        <h1 class="hero-title">SAÚDE, QUALIDADE E ESTILO DE VIDA</h1>
         <p class="hero-subtitle">
-          Escola de artes marciais em Maringá-PR. Muay Thai, Jiu-Jitsu, MMA, Boxe e Defesa Pessoal.
+          Escola de artes marciais em Maringá-PR. Muay Thai, Jiu-Jitsu, MMA e Boxe.
         </p>
         <div class="contact-actions">
           <a class="button" href={whatsappMessageFor('as aulas da Coliseu')}>Fale no WhatsApp</a>
