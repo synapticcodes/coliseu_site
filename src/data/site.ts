@@ -9,8 +9,8 @@ export const siteMeta = {
   whatsappMessage: 'Olá! Gostaria de mais informações sobre as aulas da Coliseu!',
   whatsappLink: 'https://api.whatsapp.com/message/RHNBKN3OT5WEK1?autoload=1&app_absent=0',
   phoneDisplay: '(44) 99824-9535',
-  instagram: 'https://instagram.com/chuteboxesiam.coliseu',
-  instagramHandle: '@chuteboxesiam.coliseu',
+  instagram: 'https://instagram.com/chuteboxecoliseu',
+  instagramHandle: '@chuteboxecoliseu',
 };
 
 export const classes = [
