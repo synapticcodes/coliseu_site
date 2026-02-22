@@ -78,7 +78,12 @@ const heroLogo = '/assets/logo-2.png';
         </div>
           <div class="contact-strip">
             <span>WhatsApp: {siteMeta.phoneDisplay}</span>
-            <span>Instagram: {siteMeta.instagramHandle}</span>
+            <span>
+              instagram:{' '}
+              <a href={siteMeta.instagram} target="_blank" rel="noopener noreferrer">
+                {siteMeta.instagramHandle}
+              </a>
+            </span>
           </div>
         </div>
       </div>
